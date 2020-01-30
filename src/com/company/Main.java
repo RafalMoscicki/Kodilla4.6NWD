@@ -8,5 +8,9 @@ public class Main {
 
         System.out.println(new NWD(30, 45).calculateNWD());
 
+        System.out.println(new NWD(45, 30).calculateNWD());
+
+        System.out.println(new NWD(24, 28).calculateNWD());
+
     }
 }

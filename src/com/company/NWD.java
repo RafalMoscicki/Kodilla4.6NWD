@@ -20,40 +20,20 @@ public class NWD {
     }
 
     int calculateNWD() {
-        boolean condition = true;
-        int biggerNumber;
-        int smallerNumber;
-        if (numberOne > numberTwo) {
-            biggerNumber = numberOne;
-            smallerNumber = numberTwo;
-        } else {
-            biggerNumber = numberTwo;
-            smallerNumber = numberOne;
-        }
-        while (condition) {
-            if (biggerNumber % smallerNumber == 0) {
-                condition = false;
-            } else {
-                int temp = biggerNumber % smallerNumber;
-                biggerNumber = smallerNumber;
-                smallerNumber = temp;
-            }
-        }
-        return smallerNumber;
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        NWD nwd = (NWD) o;
-        return numberOne == nwd.numberOne &&
-                numberTwo == nwd.numberTwo;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(numberOne, numberTwo);
+        if ((numberOne == 0) && (numberTwo == 0)) {
+            return 0;
+        }
+        if (numberOne == 0 || numberTwo == 0) {
+            return numberOne + numberTwo;
+        }
+        int temp;
+        while (numberOne % numberTwo != 0) {
+            temp = numberOne % numberTwo;
+            numberOne = numberTwo;
+            numberTwo = temp;
+        }
+        return numberTwo;
     }
 
 }
